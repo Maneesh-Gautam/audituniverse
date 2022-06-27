@@ -1,0 +1,200 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-toast></p-toast>
+           
+			<p-table #dt [value]="auditDetails" dataKey="risk_uid" [rows]="10" [loading]="loading" [rowHover]="true" styleClass="p-datatable-gridlines" [paginator]="true" [globalFilterFields]="['risk_uid','au_level_3_uid','process','business_objective','risk','comment','impact','likelihood','risk_score','risk_exposure']" [rowsPerPageOptions]="[10,20,30]" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [(selection)]="selectedauditDetails" responsiveLayout="scroll">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <h6 class="m-0">Audit Universe</h6>
+                        <div class="my-2">
+                    </div>
+                        <div class="my-2">
+                            <!-- <button pButton pRipple label="Clear" class="p-button-danger mr-2" icon="pi pi-filter-slash" (click)="clear(dt)"></button> -->
+							<button title="Clear" pButton pRipple  class="p-button-rounded p-button-info" icon=" pi pi-filter-slash" (click)="clear(dt)"></button>
+
+                          
+                        </div>
+						<!-- <div style="margin-left: 0.5rem;">
+                            <button title="Clear" pButton pRipple  class="p-button-rounded p-button-info" icon=" pi pi-filter-slash" (click)="clear(dt)"></button>
+                        </div> -->
+                    </div>
+                </ng-template>
+				<ng-template pTemplate="header">
+					<tr>
+                        <!-- <th style="width:0.5rem;"></th> -->
+						<th pSortableColumn="au_level_1_uid">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_1_uid"></p-sortIcon>
+								 AU LEVEL1 ID
+								
+								<p-columnFilter type="text" field="au_level_1_uid" display="menu" placeholder="Search by au_level_1_uid"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_1_desc">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_1_desc"></p-sortIcon>
+								 AU LEVEL1 DESCRIPTION
+								
+								<p-columnFilter type="text" field="au_level_1_desc" display="menu" placeholder="Search by  au_level_1_desc"></p-columnFilter>
+							</div>
+						</th>
+
+						<!-- -------------------- -->
+						<th pSortableColumn="au_level_2_uid">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_2_uid"></p-sortIcon>
+								 AU LEVEL2 UID
+								
+								<p-columnFilter type="text" field="au_level_2_uid" display="menu" placeholder="Search by au_level_2_uid"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_2_desc">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_2_desc"></p-sortIcon>
+								 AU LEVEL2 DESCRIPTION
+								
+								<p-columnFilter type="text" field="au_level_2_desc" display="menu" placeholder="Search by au_level_2_desc"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_3_uid">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_3_uid"></p-sortIcon>
+								 AU LEVEL3 UID
+								
+								<p-columnFilter type="text" field="au_level_3_uid" display="menu" placeholder="Search by au_level_3_uid"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_3_desc">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_3_desc"></p-sortIcon>
+								 AU LEVEL3 DESCRIPTION
+								
+								<p-columnFilter type="text" field="au_level_3_desc" display="menu" placeholder="Search by au_level_3_desc"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_3_definition">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_3_definition"></p-sortIcon>
+								 AU LEVEL3 DEFINITION
+								
+								<p-columnFilter type="text" field="au_level_3_definition" display="menu" placeholder="Search by au_level_3_definition"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_3_comments">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_3_comments"></p-sortIcon>
+								 AU LEVEL3 COMMENTS
+								
+								<p-columnFilter type="text" field="au_level_3_comments" display="menu" placeholder="Search by au_level_3_comments"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_4_uid">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_4_uid"></p-sortIcon>
+								 AU LEVEL4 UID
+								
+								<p-columnFilter type="text" field="au_level_4_uid" display="menu" placeholder="Search by au_level_4_uid"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_4_desc">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_4_desc"></p-sortIcon>
+								 AU LEVEL4 DESCRIPTION
+								
+								<p-columnFilter type="text" field="au_level_4_desc" display="menu" placeholder="Search by au_level_4_desc"></p-columnFilter>
+							</div>
+						</th>
+						
+						<th pSortableColumn="au_level_4_definition">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_4_definition"></p-sortIcon>
+								 AU LEVEL4 DEFINITION
+								
+								<p-columnFilter type="text" field="au_level_4_definition" display="menu" placeholder="Search by au_level_4_definition"></p-columnFilter>
+							</div>
+						</th>
+						<th pSortableColumn="au_level_4_comments">
+							<div class="flex justify-content-between align-items-center">
+								
+								 <p-sortIcon field="au_level_4_comments"></p-sortIcon>
+								 AU LEVEL4 COMMENTS
+								
+								<p-columnFilter type="text" field="au_level_4_comments" display="menu" placeholder="Search by au_level_4_comments"></p-columnFilter>
+							</div>
+						</th>
+						
+
+					</tr>
+				</ng-template>
+				
+
+				<ng-template pTemplate="body" let-auditDetail>
+					<tr>
+                     
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_1_uid}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_1_desc}}
+						</td>
+
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_2_uid}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_2_desc}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_3_uid}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_3_desc}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_3_definition}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_3_comments}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_4_uid}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_4_desc}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_4_definition}}
+						</td>
+						<td style="min-width: 12rem;">
+							{{auditDetail.au_level_4_comments}}
+						</td>
+						
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="emptymessage">
+					<tr>
+						<td colspan="7">No Audit found.</td>
+					</tr>
+				</ng-template>
+				<ng-template pTemplate="loadingbody">
+					<tr>
+						<td colspan="7">Loading Audit Data. Please wait.</td>
+					</tr>
+				</ng-template>
+    		</p-table>
+
+        </div>
+    </div>
+</div>
